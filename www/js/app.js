@@ -67,7 +67,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.categories',
     })
 
   .state('app.single', {
-    url: "/playlists/:playlistId",
+    url: "/playlist/:playlistId",
     views: {
       'menuContent': {
         templateUrl: "templates/playlist.html",
@@ -77,11 +77,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.categories',
   })
 
   .state('app.descripcion', {
-    url: "/descripcion",
+    url: "/descripcion/:itemid",
     views: {
       'menuContent': {
         templateUrl: "templates/descripcion.html",
         controller: 'ImagesListCtrl'
+        
       }
     }
   });

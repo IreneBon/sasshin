@@ -14,6 +14,7 @@ angular.module('starter.categories', [])
 })
 
 .factory('Items', function (RESOURCES, $resource) {
+    console.log("items");
     //return $resource("http://www.planificaciondeportiva.es/bmoll-app/api/web/v1/categories/:id");
     return $resource(RESOURCES.ITEMS + "/:category_id", null, {
             query: {method: 'GET', isArray: true},
@@ -26,10 +27,11 @@ angular.module('starter.categories', [])
 })
 
 .factory('Imagenes', function (RESOURCES, $resource) {
+    console.log("img");
     //return $resource("http://www.planificaciondeportiva.es/bmoll-app/api/web/v1/categories/:id");
-    return $resource(RESOURCES.IMAGENES + "/:items_id", null, {
+    return $resource(RESOURCES.IMAGENES + "/:itemid", null, {
             query: {method: 'GET', isArray: true},
-            get: {method: 'GET'},
+            get: {method: 'GET', isArray: true},
             add: {method: 'POST'},
             delete: {method: 'DELETE'},
             update: {method: 'PUT'} ,

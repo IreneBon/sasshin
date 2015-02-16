@@ -1,9 +1,12 @@
 <ion-view view-title="Lista 2">
-  <ion-content>
+  <ion-content class="color">
     <ion-list>
-      <ion-item ng-repeat="items in items" href="#/app/descripcion">
-        {{items.name}}
+    <div class="list card">
+      <ion-item ng-repeat="items in items" href="#/app/descripcion/{{items.id}}" >
+      {{items.name}} 
+      {{items.thumb}}
       </ion-item>
+    </div>
     </ion-list>
   </ion-content>
 </ion-view>

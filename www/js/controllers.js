@@ -33,18 +33,45 @@ angular.module('starter.controllers', [])
   };
 })
 
-/*.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-}) antiguo */ 
+ .controller('CategoryListCtrl', function($location, $scope, Category) {
+        Category.query(function(data){
+            $scope.categories = data;
+      //console.log($scope.categories);
+        });
 
+    })
 
+.controller('ItemListCtrl', function($scope, $stateParams, Items) {
+  var itemarray = [];
+        Items.query(function(data){
+      for (var i = 0; i < data.length; i++) {
+        if(data[i].category_id == $stateParams.playlistId){
+          itemarray.push(data[i]);
+        }
+      }; 
+      $scope.items = itemarray;
+      $scope.categoryTitle = $stateParams.playlistId; //utiliza un parametro anterior
+      //console.log($scope.items);
+        });
+})
+    
+.controller('ImagesListCtrl', function($location, $scope, $stateParams, Imagenes) {
+  var imgarray = [];
+        Imagenes.query(function(data){
+        
+        console.log($stateParams.itemid);
+    
+      for (var i = 0; i < data.length; i++) {
+        if(data[i].item_id == $stateParams.itemid){
+          console.log(data[i].item_id);
+          imgarray.push(data[i]);
+        }
+      };
+      $scope.imagenes = imgarray;
+        });
+})
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+
+;
 

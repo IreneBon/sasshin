@@ -16,6 +16,9 @@
 	margin: 0 auto;
 }
 
-#img{
-
+#fondo{
+	background-color: rgba(153, 0, 51);
+}
+body{
+	font-family: 'Lato', sans-serif;
 }

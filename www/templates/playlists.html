@@ -1,9 +1,12 @@
-<ion-view view-title="Playlists">
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="category in categories" href="#/app/playlists/{{category.id}}">
+<ion-view view-title="Categorías">
+  <ion-content class="color">
+    <ion-list id="fondo">
+     <div class="list card">
+      <ion-item ng-repeat="category in categories" href="#/app/playlist/{{category.id}}">
         {{category.name}}
       </ion-item>
+  	</div>
+
     </ion-list>
   </ion-content>
 </ion-view>
